@@ -1,0 +1,27 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "types": ["node", "express"],
+    "lib": ["es5", "es6"],
+    "target": "es6",
+    "module": "Node16",
+    "moduleResolution": "Node16",
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": false,
+
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "forceConsistentCasingInFileNames": true,
+
+    "outDir": "dist"
+  },
+  "include": ["src"],
+  "references": [{ "path": "../shared" }]
+}
