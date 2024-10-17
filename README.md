@@ -58,6 +58,19 @@ pnpm server:start
 pnpm client:preview
 ```
 
+### Uwaga!
+
+Serwer (API) jest sztucznie spowolniony (500 ms), aby pokazać że na froncie są zaimplementowane loadery. Możesz się tego pozbyć usuwając poniższy kod.
+
+```typescript
+// ./packages/server/bootstrap.ts
+
+app.use(async (req, res, next) => {
+  await new Promise((r) => setTimeout(r, 500));
+  next();
+});
+```
+
 ## Struktura Katalogów
 
 ```
