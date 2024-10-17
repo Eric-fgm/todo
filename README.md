@@ -28,6 +28,7 @@ Upewnij się, że masz zainstalowane na swoim komputerze (ja takich używałem):
 
 - Node.js (>= 20.11.0)
 - pnpm (>= 8.9.2)
+- Typescript (>= 5.5.2)
 
 ### Instalacja
 
