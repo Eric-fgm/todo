@@ -4,26 +4,32 @@
   "description": "",
   "main": "./src/index.js",
   "scripts": {
-    "build": "tsc --build && node dist/index.js",
-    "dev": "nodemon ./src/index.ts"
+    "build": "tsc --build",
+    "dev": "nodemon ./src/index.ts",
+    "start": "pnpm build && node dist/index.js"
   },
   "engines": {
     "node": "20.11.0"
   },
+  "files": [
+    "dist"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/node": "^22.7.5",
     "nodemon": "^3.1.7",
     "ts-node": "^10.9.2"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.21.1",
     "reflect-metadata": "^0.2.2",
+    "shared": "workspace:*",
     "sqlite3": "^5.1.7",
-    "typeorm": "^0.3.20",
-    "shared": "workspace:*"
+    "typeorm": "^0.3.20"
   }
 }

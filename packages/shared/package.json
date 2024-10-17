@@ -2,11 +2,16 @@
   "name": "shared",
   "version": "1.0.0",
   "description": "",
+  "files": [
+    "dist"
+  ],
   "exports": {
     "./utils": "./dist/utils/index.js",
     "./types": "./dist/types/index.js"
   },
-  "scripts": {},
+  "scripts": {
+    "build": "tsc --build"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC"

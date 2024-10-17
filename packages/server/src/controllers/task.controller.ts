@@ -47,7 +47,7 @@ const update = async (
   res: Response,
 ) => {
   const { taskId } = req.params;
-  const { title, description } = req.body;
+  const { title, description, status } = req.body;
 
   const taskRepository = getTaskRepository();
 
@@ -60,6 +60,7 @@ const update = async (
   await taskRepository.update(taskId, {
     title,
     description,
+    status,
     modifiedAt: new Date(),
   });
 

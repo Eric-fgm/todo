@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #18181B;
+  --color-bg-tertiary: #F4F4F5;
+  --color-text-primary: #18181B;
+  --color-text-secondary: #FFFFFF;
+  --color-text-muted: #71717A;
+  --color-border-primary: #E4E4E7;
+  --color-ui-ok: #008844; 
+  --color-ui-danger: #d93c5b; 
+}
+
+html, body, #root {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  color: var(--color-text-primary);
+  overflow: hidden;
+}
+
+svg {
+  color: var(--color-text-primary);
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: -0.025rem;
+  line-height: 36px;
+}
+
+h2 {
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: -0.02rem;
+  line-height: 36px;
+}
+
+h4 {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.02rem;
+  line-height: 24px;
+}
+
+p, label {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.Toastify__toast.Toastify__toast-theme--light.Toastify__toast--default {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--color-text-primary);
+  font-family: inherit;
+  border-radius: 8px;
+}

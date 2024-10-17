@@ -1,14 +1,21 @@
 import { z } from 'zod';
 
 export const validateCreateList = z.object({
-  name: z.string().min(1),
+  name: z
+    .string()
+    .min(1, { message: 'To pole musi zawierać co najmniej 1 znak' }),
 });
 
 export const validateUpdateList = validateCreateList;
 
 export const validateCreateTask = z.object({
-  title: z.string().min(1),
-  description: z.string().min(1),
+  title: z
+    .string()
+    .min(1, { message: 'To pole musi zawierać co najmniej 1 znak' }),
+  description: z
+    .string()
+    .min(1, { message: 'To pole musi zawierać co najmniej 1 znak' }),
+  status: z.enum(['done', 'to-do']).optional(),
 });
 
 export const validateUpdateTask = validateCreateTask.partial();
