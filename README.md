@@ -10,7 +10,7 @@
 
 ## Technologie
 
-Projekt to Monorepo (pnpm workspaces)
+Projekt to Monorepo, a dokładniej pnpm workspaces (nie używałem nx, lerny ani turborepo bo nie było sensu).
 
 - **pnpm**: Szybki i efektywny menedżer pakietów.
 - **TypeScript**: Typowany nadzbiór JavaScript, który kompiluje się do czystego JavaScript.
@@ -24,7 +24,7 @@ Aby uruchomić lokalną kopię, wykonaj następujące kroki:
 
 ### Wymagania Wstępne
 
-Upewnij się, że masz zainstalowane na swoim komputerze (ja takich używałem):
+Upewnij się, że masz zainstalowane na swoim komputerze (takie wersje miałem zainstalowane):
 
 - Node.js (>= 20.11.0)
 - pnpm (>= 8.9.2)
@@ -74,3 +74,5 @@ todo/
 ├── pnpm-workspace.yaml # Konfiguracja przestrzeni roboczej
 └── tsconfig-base.json  # Konfiguracja bazowa typescript
 ```
+
+Serwer ma standardową strukture à la MVC. W przypadku clienta, większość komponentów jest w folderze components (nie było sensu organizować tego per feature, bo projekt jest mały).
