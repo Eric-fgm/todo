@@ -1,10 +1,10 @@
+import { Suspense } from "react";
 import { Navigate } from "react-router-dom";
 import { Plus } from "lucide-react";
 import { useListQuery } from "../api/lists";
 import { Button, ButtonIcon } from "../components/buttons";
 import { TaskDialog } from "../components/dialogs";
 import TasksView from "../components/tasks-view";
-import { Suspense } from "react";
 import Spinner from "../components/spinner";
 
 const ListPage: React.FC = () => {
@@ -27,13 +27,7 @@ const ListPage: React.FC = () => {
             trigger={<Button className="hidden lg:block">Dodaj zadanie</Button>}
           />
         </div>
-        <Suspense
-          fallback={
-            <div className="flex h-64 w-full items-center justify-center">
-              <Spinner size={24} />
-            </div>
-          }
-        >
+        <Suspense fallback={<Spinner size={24} className="h-64 w-full" />}>
           <TasksView />
         </Suspense>
       </div>

@@ -3,6 +3,7 @@ import { useTasksQuery } from "../api/tasks";
 import Toolbar from "./toolbar";
 import TaskPlaceholder from "./task-placeholder";
 import { LinearTask, CardTask } from "./tasks";
+import Stack from "./stack";
 
 const TasksView: React.FC = () => {
   const { tasks } = useTasksQuery();
@@ -36,16 +37,11 @@ const TasksView: React.FC = () => {
         {selectedView === "List" ? (
           filteredTasks.map((task) => <LinearTask key={task.id} {...task} />)
         ) : (
-          <div className="-m-2 flex flex-wrap">
+          <Stack>
             {filteredTasks.map((task) => (
-              <div
-                key={task.id}
-                className="basis-full p-2 xs:basis-1/2 md:basis-1/3 xl:basis-1/4 2xl:basis-1/5"
-              >
-                <CardTask {...task} />
-              </div>
+              <CardTask key={task.id} {...task} />
             ))}
-          </div>
+          </Stack>
         )}
       </div>
     </div>

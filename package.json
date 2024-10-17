@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "client:build": "pnpm --filter ./packages/client build",
     "client:dev": "pnpm --filter ./packages/client dev",
-    "server:build": "pnpm --filter ./packages/server build",
+    "client:build": "pnpm --filter ./packages/client build",
+    "client:preview": "pnpm --filter ./packages/client preview",
     "server:dev": "pnpm --filter ./packages/server dev",
-    "dev": "pnpm server:dev && pnpm client:dev",
-    "build": "pnpm server:build && pnpm client:build"
+    "server:build": "pnpm --filter ./packages/server build",
+    "server:start": "pnpm --filter ./packages/server start",
+    "shared:build": "pnpm --filter ./packages/shared build",
+    "build": "pnpm install && pnpm shared:build && pnpm server:build && pnpm client:build"
   },
   "keywords": [],
   "author": "",

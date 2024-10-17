@@ -49,7 +49,7 @@ const Dialog: React.FC<DialogProps> = ({
               <p className="mt-1.5 text-muted">{subtitle}</p>
               <div className="mt-6">
                 {typeof children === "function"
-                  ? children?.({ isOpen, close: handleClose })
+                  ? children({ isOpen, close: handleClose })
                   : children}
               </div>
             </div>

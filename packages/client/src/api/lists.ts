@@ -63,11 +63,12 @@ export const useCreateList = (
   });
 };
 
-export const useUpdateList = (id: number) => {
+export const useUpdateList = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: (payload: UpdateList) => updateList(id, payload),
+    mutationFn: ({ id, ...body }: UpdateList & { id: number }) =>
+      updateList(id, body),
     onSuccess: async () =>
       queryClient.invalidateQueries({ queryKey: ["lists"] }),
   });

@@ -33,11 +33,9 @@ const Button: React.FC<ButtonProps> = ({
     >
       {children}
       {isLoading && (
-        <div
+        <Spinner
           className={`absolute left-0 top-0 flex h-full w-full items-center justify-center rounded-lg ${variantClass}`}
-        >
-          <Spinner />
-        </div>
+        />
       )}
     </button>
   );

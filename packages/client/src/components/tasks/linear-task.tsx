@@ -7,11 +7,14 @@ import { formatDate } from "../../utils";
 import Spinner from "../spinner";
 
 const LinearTask: React.FC<Task> = (props) => {
-  const { mutate: updateTask, isPending: isUpdating } = useUpdateTask(props.id);
+  const { mutate: updateTask, isPending: isUpdating } = useUpdateTask();
   const { mutate: deleteTask, isPending: isDeleting } = useDeleteTask();
 
   const updateTaskStatus = () => {
-    updateTask({ status: props.status === "done" ? "to-do" : "done" });
+    updateTask({
+      id: props.id,
+      status: props.status === "done" ? "to-do" : "done",
+    });
   };
 
   return (
@@ -42,9 +45,7 @@ const LinearTask: React.FC<Task> = (props) => {
       <div className="flex flex-1 justify-end gap-1">
         <TaskDialog data={props} trigger={<ButtonIcon icon={Edit} />} />
         {isDeleting ? (
-          <div className="flex h-6 w-6 items-center justify-center">
-            <Spinner />
-          </div>
+          <Spinner className="h-6 w-6" />
         ) : (
           <ButtonIcon icon={Trash} onClick={() => deleteTask(props.id)} />
         )}

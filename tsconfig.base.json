@@ -1,9 +1,8 @@
 {
   "compilerOptions": {
     "sourceMap": true,
-    "importHelpers": true,
     "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    "outDir": "dist"
-  }
+    "skipDefaultLibCheck": true
+  },
+  "exclude": ["node_modules", "dist"]
 }

@@ -1,9 +1,6 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  validateCreateTask,
-  validateUpdateTask,
-} from "../../../../shared/src/utils";
+import { validateCreateTask, validateUpdateTask } from "shared/utils";
 import type { Task, CreateTask, UpdateTask } from "shared/types";
 import { useCreateTask, useUpdateTask } from "../../api/tasks";
 import { Button } from "../buttons";
@@ -21,7 +18,7 @@ const TaskDialog: React.FC<TaskDialogProps> = ({ data, trigger }) => {
   const isEditing = !!data;
 
   const { mutateAsync: createTask } = useCreateTask();
-  const { mutateAsync: updateTask } = useUpdateTask(data?.id ?? 0);
+  const { mutateAsync: updateTask } = useUpdateTask();
   const {
     formState: { errors, isDirty, isValid, isSubmitting },
     register,
@@ -32,8 +29,10 @@ const TaskDialog: React.FC<TaskDialogProps> = ({ data, trigger }) => {
     values: data,
   });
 
-  const onSubmit = async (data: FormFields) =>
-    isEditing ? updateTask(data as UpdateTask) : createTask(data as CreateTask);
+  const onSubmit = async (values: FormFields) =>
+    isEditing
+      ? updateTask({ id: data.id, ...(values as UpdateTask) })
+      : createTask(values as CreateTask);
 
   return (
     <Dialog

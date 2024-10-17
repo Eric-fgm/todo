@@ -1,10 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  validateCreateList,
-  validateUpdateList,
-} from "../../../../shared/src/utils";
+import { validateCreateList, validateUpdateList } from "shared/utils";
 import type { List, CreateList, UpdateList } from "shared/types";
 import { useCreateList, useUpdateList } from "../../api/lists";
 import { Button } from "../buttons";
@@ -26,7 +23,7 @@ const ListDialog: React.FC<ListDialogProps> = ({ data, trigger }) => {
   const { mutateAsync: createList } = useCreateList({
     onSuccess: ({ data }) => navigate(ROUTES.LIST(data.id)),
   });
-  const { mutateAsync: updateList } = useUpdateList(data?.id ?? 0);
+  const { mutateAsync: updateList } = useUpdateList();
   const {
     formState: { errors, isDirty, isValid, isSubmitting },
     register,
@@ -37,8 +34,8 @@ const ListDialog: React.FC<ListDialogProps> = ({ data, trigger }) => {
     values: data,
   });
 
-  const onSubmit = async (data: FormFields) =>
-    isEditing ? updateList(data) : createList(data);
+  const onSubmit = async (values: FormFields) =>
+    isEditing ? updateList({ id: data.id, ...values }) : createList(values);
 
   return (
     <Dialog
