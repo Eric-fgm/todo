@@ -1,7 +1,7 @@
 import React from "react";
 
 interface StackProps extends React.PropsWithChildren {
-  spacing?: "normal" | "large";
+  spacing?: keyof typeof spacingClassMap;
 }
 
 const spacingClassMap = {

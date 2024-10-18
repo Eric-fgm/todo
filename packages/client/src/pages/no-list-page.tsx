@@ -11,11 +11,7 @@ const NoListPage: React.FC = () => {
     return <Navigate to={ROUTES.LIST(firstList.id)} replace />;
   }
 
-  return (
-    <div className="flex h-full items-center justify-center">
-      <ListPlaceholder />
-    </div>
-  );
+  return <ListPlaceholder className="h-full" />;
 };
 
 export default NoListPage;

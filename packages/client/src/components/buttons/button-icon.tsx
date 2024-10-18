@@ -3,8 +3,8 @@ import type { LucideProps } from "lucide-react";
 interface ButtonIconProps
   extends Omit<React.HTMLProps<HTMLButtonElement>, "size"> {
   type?: "button" | "submit" | "reset";
-  variant?: keyof typeof variantClassMap;
   size?: "normal" | "large";
+  variant?: keyof typeof variantClassMap;
   icon: React.ForwardRefExoticComponent<LucideProps>;
 }
 

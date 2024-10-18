@@ -12,12 +12,14 @@ const CardTask: React.FC<CardTaskProps> = ({ className = "", ...props }) => {
   const { mutate: updateTask, isPending: isUpdating } = useUpdateTask();
   const { mutate: deleteTask, isPending: isDeleting } = useDeleteTask();
 
-  const updateTaskStatus = () => {
+  const handleUpdateStatus = () => {
     updateTask({
       id: props.id,
       status: props.status === "done" ? "to-do" : "done",
     });
   };
+
+  const handleDelete = () => deleteTask(props.id);
 
   return (
     <div
@@ -26,7 +28,7 @@ const CardTask: React.FC<CardTaskProps> = ({ className = "", ...props }) => {
       <button
         className={`block h-1 w-8 rounded-full ${props.status === "done" ? "bg-ok" : "bg-[#e0e0e0]"}`}
         disabled={isUpdating}
-        onClick={updateTaskStatus}
+        onClick={handleUpdateStatus}
       />
       <div>
         <p className="mt-3 line-clamp-2">{props.title}</p>
@@ -38,7 +40,7 @@ const CardTask: React.FC<CardTaskProps> = ({ className = "", ...props }) => {
         {isDeleting ? (
           <Spinner className="h-6 w-6" />
         ) : (
-          <ButtonIcon icon={Trash} onClick={() => deleteTask(props.id)} />
+          <ButtonIcon icon={Trash} onClick={handleDelete} />
         )}
       </div>
     </div>

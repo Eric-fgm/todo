@@ -10,14 +10,6 @@ const TasksView: React.FC = () => {
   const [selectedStatus, setSelectedStatus] = useState("Wszystko");
   const [selectedView, setSelectedView] = useState("List");
 
-  if (!tasks || !tasks.data.length) {
-    return (
-      <div className="pt-24">
-        <TaskPlaceholder />
-      </div>
-    );
-  }
-
   const filteredTasks = tasks.data.filter(
     (task) =>
       selectedStatus === "Wszystko" ||
@@ -34,7 +26,9 @@ const TasksView: React.FC = () => {
         onViewSelect={setSelectedView}
       />
       <div className="mt-4">
-        {selectedView === "List" ? (
+        {!filteredTasks.length ? (
+          <TaskPlaceholder className="pt-20" />
+        ) : selectedView === "List" ? (
           filteredTasks.map((task) => <LinearTask key={task.id} {...task} />)
         ) : (
           <Stack>

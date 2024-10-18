@@ -58,6 +58,14 @@ pnpm server:start
 pnpm client:preview
 ```
 
+### Linki
+
+Server API: http://localhost:8080/api/v1
+
+Swagger: http://localhost:8080/api-docs
+
+Client server: http://localhost:4173
+
 ### Uwaga!
 
 Serwer (API) jest sztucznie spowolniony (500 ms), aby pokazać że na froncie są zaimplementowane loadery. Możesz się tego pozbyć usuwając poniższy kod.

@@ -6,7 +6,7 @@ interface RadioGroupProps {
     name: string;
   }[];
   selected: string;
-  onSelected?: (item: RadioGroupProps["selected"]) => void;
+  onSelected?: (name: string) => void;
 }
 
 const RadioGroup: React.FC<RadioGroupProps> = ({

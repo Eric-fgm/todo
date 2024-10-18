@@ -3,18 +3,20 @@
 @tailwind utilities;
 
 :root {
-  --color-bg-primary: #FFFFFF;
-  --color-bg-secondary: #18181B;
-  --color-bg-tertiary: #F4F4F5;
-  --color-text-primary: #18181B;
-  --color-text-secondary: #FFFFFF;
-  --color-text-muted: #71717A;
-  --color-border-primary: #E4E4E7;
-  --color-ui-ok: #008844; 
-  --color-ui-danger: #d93c5b; 
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #18181b;
+  --color-bg-tertiary: #f4f4f5;
+  --color-text-primary: #18181b;
+  --color-text-secondary: #ffffff;
+  --color-text-muted: #71717a;
+  --color-border-primary: #e4e4e7;
+  --color-ui-ok: #008844;
+  --color-ui-danger: #d93c5b;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   position: relative;
   width: 100%;
   height: 100%;
@@ -47,17 +49,9 @@ h4 {
   line-height: 24px;
 }
 
-p, label {
+p,
+label {
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
-}
-
-.Toastify__toast.Toastify__toast-theme--light.Toastify__toast--default {
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
-  color: var(--color-text-primary);
-  font-family: inherit;
-  border-radius: 8px;
 }

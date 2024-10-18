@@ -10,12 +10,14 @@ const LinearTask: React.FC<Task> = (props) => {
   const { mutate: updateTask, isPending: isUpdating } = useUpdateTask();
   const { mutate: deleteTask, isPending: isDeleting } = useDeleteTask();
 
-  const updateTaskStatus = () => {
+  const handleUpdateStatus = () => {
     updateTask({
       id: props.id,
       status: props.status === "done" ? "to-do" : "done",
     });
   };
+
+  const handleDelete = () => deleteTask(props.id);
 
   return (
     <div className="flex h-12 items-center gap-4 border-b lg:pr-4">
@@ -23,7 +25,10 @@ const LinearTask: React.FC<Task> = (props) => {
         {isUpdating ? (
           <Spinner />
         ) : (
-          <button className="h-4 w-4 flex-shrink-0" onClick={updateTaskStatus}>
+          <button
+            className="h-4 w-4 flex-shrink-0"
+            onClick={handleUpdateStatus}
+          >
             {props.status === "done" ? (
               <div className="flex h-full w-full items-center justify-center rounded-full bg-ok">
                 <Check size={12} className="text-secondary" />
@@ -47,7 +52,7 @@ const LinearTask: React.FC<Task> = (props) => {
         {isDeleting ? (
           <Spinner className="h-6 w-6" />
         ) : (
-          <ButtonIcon icon={Trash} onClick={() => deleteTask(props.id)} />
+          <ButtonIcon icon={Trash} onClick={handleDelete} />
         )}
       </div>
     </div>

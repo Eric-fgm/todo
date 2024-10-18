@@ -1,0 +1,16 @@
+.Toastify__toast-container.Toastify__toast-container--bottom-right {
+  padding: 8px;
+}
+
+.Toastify__toast.Toastify__toast-theme--light.Toastify__toast--default {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--color-text-primary);
+  font-family: inherit;
+  border-radius: 12px;
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 2px 4px 2px rgb(0 0 0 / 0.1);
+}

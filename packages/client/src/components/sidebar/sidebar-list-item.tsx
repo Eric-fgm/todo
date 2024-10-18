@@ -18,7 +18,9 @@ const SidebarListItem: React.FC<List> = (props) => {
         text={props.name}
         className="my-1"
       />
-      <div className="absolute right-2 top-1.5 flex items-center gap-1 opacity-0 group-hover:opacity-100">
+      <div
+        className={`absolute right-2 top-1.5 flex items-center gap-1 focus-within:opacity-100 group-hover:opacity-100 ${isDeleting ? "opacity-100" : "opacity-0"}`}
+      >
         <ListDialog data={props} trigger={<ButtonIcon icon={Edit} />} />
         {isDeleting ? (
           <Spinner className="h-6 w-6" />
